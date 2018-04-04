@@ -27,6 +27,7 @@ public:
 	template<typename T>
 	void generate_child(int i)
 	{
+		static_assert(std::is_base_of<node, T>::value, "drived not derived from node");
 		child.emplace_back(new T(x + i, y    ));
 		child.emplace_back(new T(x - i, y    ));
 		child.emplace_back(new T(x    , y + i));
